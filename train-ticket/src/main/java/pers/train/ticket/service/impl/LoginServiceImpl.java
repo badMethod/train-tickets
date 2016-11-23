@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pers.train.ticket.dao.TicketDetailMapper;
+import pers.train.ticket.dao.TicketUserMapper;
 import pers.train.ticket.model.TicketUser;
 import pers.train.ticket.service.LoginService;
 
@@ -13,11 +13,11 @@ import pers.train.ticket.service.LoginService;
 public class LoginServiceImpl implements LoginService {
 
 	@Autowired
-	private TicketDetailMapper ticketDetailMapper;
-	
+	private TicketUserMapper ticketUserMapper;
+
 	@Override
-	public TicketUser login(String userName, String password) throws Exception {
-		return null;
+	public TicketUser login(String account, String password) throws Exception {
+		return ticketUserMapper.login(account, password);
 	}
 
 }

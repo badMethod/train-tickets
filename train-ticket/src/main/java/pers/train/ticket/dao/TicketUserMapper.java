@@ -14,4 +14,6 @@ public interface TicketUserMapper {
     int updateByPrimaryKeySelective(TicketUser record);
 
     int updateByPrimaryKey(TicketUser record);
+    
+    TicketUser login(String account, String password);
 }

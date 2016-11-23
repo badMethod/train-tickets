@@ -13,11 +13,12 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		Object user = session.getAttribute("user");
-		if (user == null || request.getRequestURI().contains("login")) {
+		Object user = session.getAttribute("currentUser");
+		String uri = request.getRequestURI();
+		if (user != null || uri.contains("toindex") || uri.contains("login")) {
 			return true;
 		}
-		response.sendRedirect("/index.jsp");
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
 		return false;
 	}
 

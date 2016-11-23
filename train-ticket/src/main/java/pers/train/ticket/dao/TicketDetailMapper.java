@@ -1,5 +1,7 @@
 package pers.train.ticket.dao;
 
+import java.util.List;
+
 import pers.train.ticket.model.TicketDetail;
 
 public interface TicketDetailMapper {
@@ -14,4 +16,6 @@ public interface TicketDetailMapper {
     int updateByPrimaryKeySelective(TicketDetail record);
 
     int updateByPrimaryKey(TicketDetail record);
+    
+    List<TicketDetail> getAllTicket(String date);
 }
