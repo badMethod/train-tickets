@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.sf.json.JSONObject;
@@ -16,15 +18,15 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-	
+
 	@RequestMapping("/login")
-	public String toLogin(){
+	public String toLogin() {
 		return "login.jsp";
 	}
-	
-	@RequestMapping("/toindex")
+
+	@RequestMapping(value = "/toindex", method = RequestMethod.POST)
 	@ResponseBody
-	public String toindex(HttpSession session, String account, String password){
+	public String toindex(HttpSession session, @RequestParam String account, @RequestParam String password) {
 		String msgCode = "200";
 		JSONObject msg = new JSONObject();
 		TicketUser user = null;
@@ -34,9 +36,9 @@ public class LoginController {
 			e.printStackTrace();
 			msgCode = "500";
 		}
-		if(user!=null){
+		if (user != null) {
 			session.setAttribute("currentUser", user);
-		}else{
+		} else {
 			msgCode = "601";
 		}
 		msg.put("msgCode", msgCode);

@@ -14,14 +14,14 @@
 	</bean>
 
 	<!-- 防止@ResponseBody乱码 -->
-	 <mvc:annotation-driven>
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <constructor-arg value="UTF-8" />
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
-	
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
 	<mvc:default-servlet-handler />
 
 	<mvc:interceptors>
@@ -30,5 +30,5 @@
 			<bean class="pers.train.ticket.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-   
+
 </beans>

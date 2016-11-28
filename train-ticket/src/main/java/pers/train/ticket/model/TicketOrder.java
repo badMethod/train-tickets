@@ -1,65 +1,74 @@
 package pers.train.ticket.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TicketOrder {
-    private Integer id;
+import org.springframework.format.annotation.DateTimeFormat;
 
-    private Integer userId;
+public class TicketOrder implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1228954935711374387L;
 
-    private Integer ticId;
+	private Integer id;
 
-    private Integer ticNo;
+	private Integer userId;
 
-    private Date createDate;
+	private Integer ticId;
 
-    private Integer status;
+	private Integer ticNo;
 
-    public Integer getId() {
-        return id;
-    }
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date createDate;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private Integer status;
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getTicId() {
-        return ticId;
-    }
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setTicId(Integer ticId) {
-        this.ticId = ticId;
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public Integer getTicNo() {
-        return ticNo;
-    }
+	public Integer getTicId() {
+		return ticId;
+	}
 
-    public void setTicNo(Integer ticNo) {
-        this.ticNo = ticNo;
-    }
+	public void setTicId(Integer ticId) {
+		this.ticId = ticId;
+	}
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+	public Integer getTicNo() {
+		return ticNo;
+	}
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+	public void setTicNo(Integer ticNo) {
+		this.ticNo = ticNo;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

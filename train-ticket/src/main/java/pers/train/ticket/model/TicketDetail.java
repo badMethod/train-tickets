@@ -1,11 +1,17 @@
 package pers.train.ticket.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class TicketDetail {
+public class TicketDetail implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9195670047663950570L;
+
 	private Integer id;
 
 	private String name;
@@ -14,10 +20,10 @@ public class TicketDetail {
 
 	private String endCity;
 
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date startTime;
 
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date endTime;
 
 	private List<TicketResidue> residues;

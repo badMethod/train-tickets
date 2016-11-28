@@ -1,55 +1,64 @@
 package pers.train.ticket.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TicketResidue {
-    private Integer id;
+import org.springframework.format.annotation.NumberFormat;
 
-    private Integer ticId;
+public class TicketResidue implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5589473556579752963L;
 
-    private BigDecimal price;
+	private Integer id;
 
-    private Integer type;
+	private Integer ticId;
 
-    private Integer residue;
+	@NumberFormat(pattern="####.##")
+	private BigDecimal price;
 
-    public Integer getId() {
-        return id;
-    }
+	private Integer type;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private Integer residue;
 
-    public Integer getTicId() {
-        return ticId;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setTicId(Integer ticId) {
-        this.ticId = ticId;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+	public Integer getTicId() {
+		return ticId;
+	}
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+	public void setTicId(Integer ticId) {
+		this.ticId = ticId;
+	}
 
-    public Integer getType() {
-        return type;
-    }
+	public BigDecimal getPrice() {
+		return price;
+	}
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
 
-    public Integer getResidue() {
-        return residue;
-    }
+	public Integer getType() {
+		return type;
+	}
 
-    public void setResidue(Integer residue) {
-        this.residue = residue;
-    }
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Integer getResidue() {
+		return residue;
+	}
+
+	public void setResidue(Integer residue) {
+		this.residue = residue;
+	}
 }

@@ -1,5 +1,7 @@
 package pers.train.ticket.dao;
 
+import java.util.List;
+
 import pers.train.ticket.model.TicketResidue;
 
 public interface TicketResidueMapper {
@@ -14,4 +16,6 @@ public interface TicketResidueMapper {
     int updateByPrimaryKeySelective(TicketResidue record);
 
     int updateByPrimaryKey(TicketResidue record);
+    
+    List<TicketResidue> getDetailByticId(int ticId);
 }

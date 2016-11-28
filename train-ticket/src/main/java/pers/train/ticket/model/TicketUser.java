@@ -1,33 +1,40 @@
 package pers.train.ticket.model;
 
-public class TicketUser {
-    private Integer userId;
+import java.io.Serializable;
 
-    private String account;
+public class TicketUser implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6368802513063993395L;
 
-    private String password;
+	private Integer userId;
 
-    public Integer getUserId() {
-        return userId;
-    }
+	private String account;
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	private String password;
 
-    public String getAccount() {
-        return account;
-    }
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getAccount() {
+		return account;
+	}
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	public void setAccount(String account) {
+		this.account = account == null ? null : account.trim();
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password == null ? null : password.trim();
+	}
 }

@@ -1,93 +1,105 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="pers.train.ticket.dao.TicketResidueMapper" >
-  <resultMap id="BaseResultMap" type="pers.train.ticket.model.TicketResidue" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="tic_id" property="ticId" jdbcType="INTEGER" />
-    <result column="price" property="price" jdbcType="DECIMAL" />
-    <result column="type" property="type" jdbcType="INTEGER" />
-    <result column="residue" property="residue" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, tic_id, price, type, residue
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from ticket_residue
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from ticket_residue
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="pers.train.ticket.model.TicketResidue" >
-    insert into ticket_residue (id, tic_id, price, 
-      type, residue)
-    values (#{id,jdbcType=INTEGER}, #{ticId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
-      #{type,jdbcType=INTEGER}, #{residue,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="pers.train.ticket.model.TicketResidue" >
-    insert into ticket_residue
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="ticId != null" >
-        tic_id,
-      </if>
-      <if test="price != null" >
-        price,
-      </if>
-      <if test="type != null" >
-        type,
-      </if>
-      <if test="residue != null" >
-        residue,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="ticId != null" >
-        #{ticId,jdbcType=INTEGER},
-      </if>
-      <if test="price != null" >
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="type != null" >
-        #{type,jdbcType=INTEGER},
-      </if>
-      <if test="residue != null" >
-        #{residue,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="pers.train.ticket.model.TicketResidue" >
-    update ticket_residue
-    <set >
-      <if test="ticId != null" >
-        tic_id = #{ticId,jdbcType=INTEGER},
-      </if>
-      <if test="price != null" >
-        price = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=INTEGER},
-      </if>
-      <if test="residue != null" >
-        residue = #{residue,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="pers.train.ticket.model.TicketResidue" >
-    update ticket_residue
-    set tic_id = #{ticId,jdbcType=INTEGER},
-      price = #{price,jdbcType=DECIMAL},
-      type = #{type,jdbcType=INTEGER},
-      residue = #{residue,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+<mapper namespace="pers.train.ticket.dao.TicketResidueMapper">
+	<resultMap id="BaseResultMap" type="pers.train.ticket.model.TicketResidue">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="tic_id" property="ticId" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="DECIMAL" />
+		<result column="type" property="type" jdbcType="INTEGER" />
+		<result column="residue" property="residue" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, tic_id, price, type, residue
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from ticket_residue
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<select id="getDetailByticId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from ticket_residue
+		where tic_id = #{ticId,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from ticket_residue
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="pers.train.ticket.model.TicketResidue">
+		insert into ticket_residue (id, tic_id, price,
+		type, residue)
+		values (#{id,jdbcType=INTEGER}, #{ticId,jdbcType=INTEGER},
+		#{price,jdbcType=DECIMAL},
+		#{type,jdbcType=INTEGER}, #{residue,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="pers.train.ticket.model.TicketResidue">
+		insert into ticket_residue
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="ticId != null">
+				tic_id,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="residue != null">
+				residue,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="ticId != null">
+				#{ticId,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=DECIMAL},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=INTEGER},
+			</if>
+			<if test="residue != null">
+				#{residue,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="pers.train.ticket.model.TicketResidue">
+		update ticket_residue
+		<set>
+			<if test="ticId != null">
+				tic_id = #{ticId,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=INTEGER},
+			</if>
+			<if test="residue != null">
+				residue = #{residue,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="pers.train.ticket.model.TicketResidue">
+		update ticket_residue
+		set tic_id = #{ticId,jdbcType=INTEGER},
+		price = #{price,jdbcType=DECIMAL},
+		type = #{type,jdbcType=INTEGER},
+		residue = #{residue,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
 </mapper>
