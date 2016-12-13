@@ -20,7 +20,7 @@
   	select 
   	<include refid="Base_Column_List"></include>
   	from ticket_user
-  	where account = #{0} and password = #{1}
+  	where account = #{account} and password = #{password}
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

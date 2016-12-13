@@ -21,6 +21,7 @@ import pers.train.ticket.service.TicketDetailService;
 import pers.train.ticket.utils.DateJsonValueProcessor;
 
 @Controller
+@RequestMapping("/ticket")
 public class TicketDetailController {
 
 	@Autowired
